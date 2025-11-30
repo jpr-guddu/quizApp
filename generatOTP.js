@@ -53,7 +53,7 @@ function verifyOTP() {
         msg.innerHTML = "<b>OTP Verified ✔</b>";
         signup();
         setTimeout(() => {
-            window.location.href = "signUp.html"; 
+            window.location.href = "quiz.html"; 
         }, 1000);
     } else {
         msg.style.color = "red";
@@ -130,3 +130,4 @@ function signup() {
             msg.innerText = error.message;
         });
 }
+
