@@ -1,80 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Quiz App - Premium Certificate + Logo & Signature</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Email OTP Login</title>
+  <link rel="stylesheet" href="sign.css">
 
-  <!-- jsPDF -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 
-  <!--Firebase (compat) -->
-  <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore-compat.js"></script> 
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 
 <body>
 
-  <div style="max-width:1100px;margin:auto;">
-    <div class="logo-row" style="justify-content:space-between; align-items:center;">
-      <div style="display:flex;align-items:center;gap:12px;">
-        <img id="logoImg" alt="Logo">
-        <div>
-          <div class="brand-title">Quiz App — Premium</div>
-          <div class="muted">Secure quizzes • Printable certificates</div>
-        </div>
-      </div>
+  <div class="box" id="boxy">
+    <h2>Signup</h2>
 
-      <div style="text-align:right;">
-        <div class="muted">Student name</div>
-        <input id="studentName" type="text" placeholder="Enter student name"
-          style="padding:8px 10px;border-radius:8px;border:1px solid #ddd;">
-      </div>
-    </div>
+    <input id="name" type="text" placeholder="Full Name" required>
+    <input id="email" type="email" placeholder="Email" required>
 
-    <div class="app">
-      <div class="sidebar panel">
-        <!-- <h2>Selections</h2> -->
-        <div id="classList"><strong>Classes:</strong></div>
-      </div>
+    <select id="gender">
+      <option value="">Select Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
 
-      <div class="sidebar panel" id="up" style="display: none;">
-        <div id="subjectList" style="margin-top:8px;"><strong>Subjects:</strong></div>
-      </div>
+    <input id="age" type="number" placeholder="Age" required>
+    <input id="dob" type="date" required>
+    <input id="password" type="password" placeholder="Password" required>
 
-      <div class="sidebar panel" id="br" style="display: none;">
-        <div id="chapterList" style="margin-top:8px;"><strong>Chapters:</strong></div>
-      </div>
-    </div>
+    <button id="guddu">Send OTP</button>
 
-    <div class="content" style="display: none;">
-        <div class="panel">
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <div>
-              <div id="timer" class="muted"></div>
-              <div id="score" class="muted"></div>
-            </div>
-            <div>
-              <button id="themeCertBtn" class="secondary" style="display:none;">Preview Certificate</button>
-            </div>
-          </div>
-
-          <div id="quizContainer" style="margin-top:12px;">
-            <div id="quizArea"></div>
-            <div class="controls">
-              <button id="startBtn" style="display:none;">Start Quiz</button>
-              <button id="prevBtn" style="display:none;" disabled>Prev</button>
-              <button id="submitBtn" style="display:none;" disabled>Submit</button>
-              <button id="nextBtn" style="display:none;" disabled>Next</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    <p id="msg" style="color:red;"></p>
   </div>
 
-   <script type="module" src="script.js"></script> 
-</body>
+  <div id="step2" style="display:none;">
+    <input type="text" id="otpInput" placeholder="Enter OTP">
+    <button id="verifyguddu">Verify OTP</button>
+  </div>
 
+  <div id="message" style="margin-top:20px;"></div>
+
+  <!-- JS FIXED (No module) -->
+  <script src="otp.js"></script>
+
+</body>
 </html>
